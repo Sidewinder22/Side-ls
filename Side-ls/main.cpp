@@ -1,5 +1,6 @@
 #include <iostream>
-#include <filesystem>
+
+import tools;
 
 using namespace std;
 
@@ -7,14 +8,9 @@ int main()
 {
     cout << "Hello World!" << endl;
 
-    const std::filesystem::path path(".");
-    for (auto && entry : std::filesystem::directory_iterator{path})
-    {
-        cout << "Path: " << entry << endl;
-    }
+    Tools tools;
+    tools.printCurrentDir();
 
-
-
-
+    cout << "Bye!" << endl;
     return 0;
 }
