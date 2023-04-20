@@ -105,3 +105,7 @@ Thumbs.db
 *.exe
 
 build*
+
+### QTcreator files ###
+Side-ls/CMakeLists.txt.user
+Side-ls/CMakeLists.txt.user*
