@@ -1,6 +1,5 @@
 #include <iostream>
-
-import Filesystem;
+#include "tools/Filesystem.hpp"
 
 using namespace std;
 
@@ -9,8 +8,7 @@ int main()
     cout << "Hello World!" << endl;
 
     Filesystem filesystem;
-    filesystem.printCurrentDir();
+    filesystem.getCurrentDirContent();
 
-    cout << "Bye!" << endl;
     return 0;
 }

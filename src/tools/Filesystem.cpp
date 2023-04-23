@@ -1,23 +1,15 @@
-module;
-
 #include <iostream>
 #include <filesystem>
+#include "Filesystem.hpp"
 
-export module tools;
-
-export class Tools {
-public:
-    void printCurrentDir();
-
-private:
-    static constexpr auto currentPath_ = (".");
-};
-
-void Tools::printCurrentDir()
+void Filesystem::getCurrentDirContent()
 {
     const std::filesystem::path path(currentPath_);
+
+//    std::vector<std::string> output;
     for (auto && entry : std::filesystem::directory_iterator{path})
     {
         std::cout << "Path: " << entry << std::endl;
+//        output.push_back(entry.path().c_str());
     }
 }
