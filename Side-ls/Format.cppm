@@ -1,6 +1,6 @@
 module;
 
-#include <iostream>
+// #include <iostream>
 #include <string>
 #include <vector>
 
@@ -13,14 +13,14 @@ public:
 };
 
 
-std::vector<std::string> Format::cleanupOutput(std::vector<std::string> output)
-{
-    std::cout << "CleanupOutput(): " << std::endl;
+// std::vector<std::string> Format::cleanupOutput(std::vector<std::string> output)
+// {
+//     std::cout << "CleanupOutput(): " << std::endl;
 
-    for (auto && entry: output)
-    {
-        std::cout << "entry: " << entry << std::endl;
-    }
+//     for (auto && entry: output)
+//     {
+//         std::cout << "entry: " << entry << std::endl;
+//     }
 
-    return std::move(output);
-}
+//     return std::move(output);
+// }
