@@ -1,16 +1,13 @@
 #include <iostream>
 
-import tools;
+import Filesystem;
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Filesystem filesystem;
+    filesystem.printCurrentDir();
 
-    Tools tools;
-    tools.printCurrentDir();
-
-    cout << "Bye!" << endl;
     return 0;
 }
