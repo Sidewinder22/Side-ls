@@ -56,7 +56,6 @@ tags
 .DS_Store
 .directory
 *.debug
-Makefile*
 *.prl
 *.app
 moc_*.cpp
@@ -106,6 +105,8 @@ Thumbs.db
 
 build*
 
+#### MY SETUP ####
+
 ### QTcreator files ###
 Side-ls/CMakeLists.txt.user
 Side-ls/CMakeLists.txt.user*
@@ -116,3 +117,4 @@ Side-ls/CMakeLists.txt.user*
 .settings
 *.pcm 
 *.o
+Side-ls/Side-ls

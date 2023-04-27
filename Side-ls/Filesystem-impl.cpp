@@ -18,5 +18,12 @@ void Filesystem::printCurrentDir()
     }
 
     Format format;
-    format.cleanupOutput(output);
+    auto results = format.cleanupOutput(output);
+
+    for (auto && result : results)
+    {
+        std::cout << result << " ";
+    }
+
+    std::cout << std::endl;
 }
