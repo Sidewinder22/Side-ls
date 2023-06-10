@@ -7,9 +7,13 @@
 
 #include <iostream>
 #include "Filesystem.hpp"
+#include "ProgramOptions.hpp"
 
-int main()
+int main(int argc, char* argv[])
 {
+	ProgramOptions programOptions;
+	programOptions.parseArgs(argc, argv);
+
     Filesystem filesystem;
     filesystem.printCurrentDir();
 
