@@ -10,12 +10,7 @@ import Format;
 
 void Filesystem::printCurrentDir()
 {
-    std::vector<std::string> output;
-    
-    for (auto && entry : std::filesystem::directory_iterator{currentPath_})
-    {
-        output.push_back(entry.path().c_str());
-    }
+    auto output = getDirContent();
 
     Format format;
     auto results = format.cleanupOutput(output);
@@ -26,4 +21,17 @@ void Filesystem::printCurrentDir()
     }
 
     std::cout << std::endl;
+}
+
+    
+std::vector<std::string> Filesystem::getDirContent()
+{
+    std::vector<std::string> output;
+        
+    for (auto && entry : std::filesystem::directory_iterator{currentPath_})
+    {
+        output.push_back(entry.path().c_str());
+    }
+
+    return output;
 }

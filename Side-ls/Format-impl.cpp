@@ -6,7 +6,7 @@ module;
 
 module Format;
 
-std::vector<std::string> Format::cleanupOutput(std::vector<std::string>& output)
+std::vector<std::string> Format::cleanupOutput(const std::vector<std::string>& output)
 {
     std::vector<std::string> result;
 
