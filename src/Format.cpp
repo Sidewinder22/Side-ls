@@ -1,12 +1,15 @@
-module;
+/*
+ * Format.cpp
+ *
+ *  Created on: 10 cze 2023
+ *      Author: sidewin
+ */
 
 #include <algorithm>
 #include <iostream>
-#include <vector>
+#include "Format.hpp"
 
-module Format;
-
-std::vector<std::string> Format::cleanupOutput(std::vector<std::string>& output)
+std::vector<std::string> Format::cleanupOutput(const std::vector<std::string>& output)
 {
     std::vector<std::string> result;
 
