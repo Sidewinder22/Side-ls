@@ -9,7 +9,7 @@
 #define SRC_PROGRAMOPTIONS_HPP_
 
 #include <boost/program_options.hpp>
-
+#include "Options.hpp"
 
 namespace po = boost::program_options;
 
@@ -17,7 +17,7 @@ class ProgramOptions {
 public:
 	ProgramOptions();
 
-	void parseArgs(int argc, char* argv[]);
+    std::vector<Options> parseArgs(int argc, char* argv[]);
 
 private:
 	po::options_description description_;

@@ -10,10 +10,25 @@
 
 #include <string>
 #include <vector>
+#include "Options.hpp"
 
 class Format {
 public:
-	 std::vector<std::string> cleanupOutput(const std::vector<std::string>& output);
+    Format(const std::vector<Options>& options);
+     auto formatOutput(const std::vector<std::string>& output)
+        -> std::vector<std::string>;
+
+private:
+     auto applyOption(Options option, const std::vector<std::string>& output)
+        -> std::vector<std::string>;
+     auto cleanupOutput(const std::vector<std::string>& output)
+        -> std::vector<std::string>;
+
+     // Options impls
+     auto longListing(const std::vector<std::string>& output)
+        -> std::vector<std::string>;
+
+     std::vector<Options> options_;
 };
 
 #endif /* SRC_FORMAT_HPP_ */

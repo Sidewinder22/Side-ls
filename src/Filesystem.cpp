@@ -10,12 +10,17 @@
 #include "Format.hpp"
 #include "Filesystem.hpp"
 
+Filesystem::Filesystem(std::vector<Options> options)
+    : options_(std::move(options))
+{  }
+
 void Filesystem::printCurrentDir()
 {
     auto output = getDirContent();
 
-    Format format;
-    auto results = format.cleanupOutput(output);
+    Format format(options_);
+    auto results = format.formatOutput(output);
+//    auto results = format.cleanupOutput(output);
 
     for (auto && result : results)
     {

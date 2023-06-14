@@ -4,9 +4,13 @@ find_package(Boost 1.74.0 REQUIRED COMPONENTS
 	program_options)
 
 add_executable(${APP} 
-	Filesystem.cpp
+        Filesystem.hpp
+        Filesystem.cpp
+        Format.hpp
 	Format.cpp
-	ProgramOptions.cpp
+        Options.hpp
+        ProgramOptions.hpp
+        ProgramOptions.cpp
 	main.cpp
 )
 

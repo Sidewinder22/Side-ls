@@ -118,3 +118,5 @@ Side-ls/CMakeLists.txt.user*
 *.pcm 
 *.o
 Side-ls/Side-ls
+
+CMakeLists.txt.user
