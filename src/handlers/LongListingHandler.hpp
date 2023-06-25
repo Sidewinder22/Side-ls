@@ -6,13 +6,9 @@
 class LongListingHandler : public Handler
 {
 public:
-    explicit LongListingHandler(std::vector<std::string> output);
     ~LongListingHandler() override = default;
 
-    std::vector<std::string> execute() override;
-
-private:
-    std::vector<std::string> output_;
+    std::vector<std::string> execute(std::vector<std::string> output) override;
 };
 
 #endif // LONGLISTINGHANDLER_HPP

@@ -10,7 +10,7 @@
 #include "Format.hpp"
 #include "Filesystem.hpp"
 
-Filesystem::Filesystem(std::vector<Options> options)
+Filesystem::Filesystem(std::vector<Option> options)
     : options_(std::move(options))
 {  }
 
@@ -28,7 +28,6 @@ void Filesystem::printCurrentDir()
 
     std::cout << std::endl;
 }
-
 
 std::vector<std::string> Filesystem::getDirContent()
 {
