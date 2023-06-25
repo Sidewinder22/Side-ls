@@ -12,9 +12,9 @@
 int main(int argc, char* argv[])
 {
 	ProgramOptions programOptions;
-	programOptions.parseArgs(argc, argv);
+    auto args =	programOptions.parseArgs(argc, argv);
 
-    Filesystem filesystem;
+    Filesystem filesystem(args);
     filesystem.printCurrentDir();
 
 	return 0;

@@ -10,10 +10,21 @@
 
 #include <string>
 #include <vector>
+#include "Options.hpp"
+#include "handlers/HandlerFactory.hpp"
 
 class Format {
 public:
-	 std::vector<std::string> cleanupOutput(const std::vector<std::string>& output);
+    Format(std::vector<Options> options);
+    std::vector<std::string> formatOutput(
+        const std::vector<std::string>& output);
+
+private:
+     std::vector<std::string> applyOption(Options option,
+         const std::vector<std::string>& output);
+
+     std::vector<Options> options_;
+     std::unique_ptr<HandlerFactory> handlerFactory_;
 };
 
 #endif /* SRC_FORMAT_HPP_ */
