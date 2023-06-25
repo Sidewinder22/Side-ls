@@ -9,19 +9,22 @@
 #define SRC_FILESYSTEM_HPP_
 
 #include <string>
+#include <unordered_map>
 #include <vector>
 #include "Option.hpp"
 
 class Filesystem {
 public:
-    Filesystem(std::vector<Option> options);
+    Filesystem(std::unordered_map<Option, std::string> options);
 
-	void printCurrentDir();
-    std::vector<std::string> getDirContent();
+    void printDir();
 
 private:
-	static constexpr auto currentPath_ = ".";
-    std::vector<Option> options_;
+    std::vector<std::string> getDirContent(const std::string &path);
+    std::string extractPathFromOptions();
+
+    static constexpr auto currentPath_ = ".";
+    std::unordered_map<Option, std::string> options_;
 };
 
 #endif /* SRC_FILESYSTEM_HPP_ */

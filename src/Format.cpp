@@ -5,9 +5,10 @@
  *      Author: sidewin
  */
 
+#include <iostream>
 #include "Format.hpp"
 
-Format::Format(std::vector<Option> options)
+Format::Format(std::unordered_map<Option, std::string> options)
     : options_(std::move(options))
     , handlerFactory_(std::make_unique<HandlerFactory>())
 {  }

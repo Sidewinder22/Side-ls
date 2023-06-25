@@ -9,17 +9,18 @@
 #define SRC_FORMAT_HPP_
 
 #include <string>
+#include <unordered_map>
 #include <vector>
 #include "Option.hpp"
 #include "handlers/HandlerFactory.hpp"
 
 class Format {
 public:
-    Format(std::vector<Option> options);
+    Format(std::unordered_map<Option, std::string> options);
     std::vector<std::string> formatOutput(std::vector<std::string> output);
 
 private:
-     std::vector<Option> options_;
+     std::unordered_map<Option, std::string> options_;
      std::unique_ptr<HandlerFactory> handlerFactory_;
 };
 

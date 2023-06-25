@@ -8,19 +8,22 @@
 #ifndef SRC_PROGRAMOPTIONS_HPP_
 #define SRC_PROGRAMOPTIONS_HPP_
 
+#include <unordered_map>
 #include <boost/program_options.hpp>
 #include "Option.hpp"
 
 namespace po = boost::program_options;
 
-class ProgramOptions {
+class ProgramOptions
+{
 public:
 	ProgramOptions();
 
-    std::vector<Option> parseArgs(int argc, char* argv[]);
+    std::unordered_map<Option, std::string> parseArgs(int argc, char* argv[]);
 
 private:
-	po::options_description description_;
+    po::options_description optionsDescription_;
+    po::positional_options_description positionalOptionsDescription_;
 	po::variables_map variablesMap_;
 };
 
