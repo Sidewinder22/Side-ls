@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
     auto args =	programOptions.parseArgs(argc, argv);
 
     Filesystem filesystem(args);
-    filesystem.printCurrentDir();
+    filesystem.printDir();
 
 	return 0;
 }

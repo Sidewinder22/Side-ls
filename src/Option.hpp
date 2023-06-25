@@ -3,7 +3,8 @@
 
 enum class Option
 {
-    l,
+    list,
+    path,
 };
 
 #endif // OPTION_HPP

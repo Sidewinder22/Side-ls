@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <iostream>
 #include "LongListingHandler.hpp"
 
 std::vector<std::string> LongListingHandler::execute(

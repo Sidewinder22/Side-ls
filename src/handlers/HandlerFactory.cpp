@@ -7,35 +7,41 @@ HandlerFactory::HandlerFactory()
 {  }
 
 std::vector<std::unique_ptr<Handler>> HandlerFactory::getApplicableHandlers(
-    std::vector<Option> options)
+    std::unordered_map<Option, std::string> options)
 {
     std::vector<std::unique_ptr<Handler>> handlers;
 
     // Always cleanup the input
     handlers.emplace_back(std::make_unique<CleanHandler>());
 
-    for (auto && option: options)
+    for (auto && option : options)
     {
-        handlers.push_back(getAppropiateHandlerForOption(option));
+        auto handler = getAppropiateHandlerForOption(option);
+        if (handler)
+        {
+            handlers.emplace_back(std::move(handler));
+        }
     }
 
     return handlers;
 }
 
 std::unique_ptr<Handler> HandlerFactory::getAppropiateHandlerForOption(
-    Option option)
+    std::pair<Option, std::string> option)
 {
-    std::unique_ptr<Handler> handler;
+    std::unique_ptr<Handler> handler = nullptr;
 
-    switch (option)
+    switch (option.first)
     {
-        case Option::l:
+        case Option::list:
             handler = std::make_unique<LongListingHandler>();
+        break;
+
+        case Option::path:
         break;
 
         default:
             std::cerr << "Wrong options!" << std::endl;
-            handler = nullptr;
     }
 
     return handler;
