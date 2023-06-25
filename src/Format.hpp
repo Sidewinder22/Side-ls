@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 #include "Options.hpp"
-#include "CommandFactory.hpp"
+#include "handlers/CommandFactory.hpp"
 
 class Format {
 public:
@@ -21,8 +21,6 @@ public:
 
 private:
      auto applyOption(Options option, const std::vector<std::string>& output)
-        -> std::vector<std::string>;
-     auto cleanupOutput(const std::vector<std::string>& output)
         -> std::vector<std::string>;
 
      std::vector<Options> options_;

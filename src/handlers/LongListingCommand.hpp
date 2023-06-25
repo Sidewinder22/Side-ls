@@ -6,7 +6,7 @@
 class LongListingCommand : public Command
 {
 public:
-    LongListingCommand(std::vector<std::string> output);
+    explicit LongListingCommand(std::vector<std::string> output);
     ~LongListingCommand() override = default;
 
     std::vector<std::string> execute() override;

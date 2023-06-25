@@ -5,7 +5,6 @@
  *      Author: sidewin
  */
 
-#include <algorithm>
 #include <iostream>
 #include "Format.hpp"
 
@@ -18,7 +17,8 @@ Format::Format(std::vector<Options> options)
 auto Format::formatOutput(const std::vector<std::string>& output)
     -> std::vector<std::string>
 {
-    auto result = cleanupOutput(output);
+    auto clean = factory_->createCleanCommand(output);
+    auto result = clean->execute();
 
     for (auto&& option: options_)
     {
@@ -36,7 +36,7 @@ auto Format::applyOption(Options option, const std::vector<std::string>& output)
     switch (option)
     {
         case Options::l:
-            std::cout << "Format l" << std::endl;
+//            std::cout << "Format l" << std::endl;
             commandHandler = factory_->createLongListingCommand(output);
         break;
 
@@ -45,15 +45,4 @@ auto Format::applyOption(Options option, const std::vector<std::string>& output)
     }
 
     return commandHandler->execute();
-}
-
-auto Format::cleanupOutput(const std::vector<std::string>& output)
-    -> std::vector<std::string>
-{
-    std::vector<std::string> result;
-
-    std::ranges::transform(output, std::back_inserter(result),
-        [](std::string entry){ return entry.substr(2); });
-
-    return result;
 }

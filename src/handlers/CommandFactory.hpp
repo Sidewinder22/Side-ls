@@ -11,6 +11,8 @@ public:
 
     std::unique_ptr<Command>
         createLongListingCommand(std::vector<std::string> output);
+    std::unique_ptr<Command>
+        createCleanCommand(std::vector<std::string> output);
 };
 
 #endif // COMMANDFACTORY_HPP
