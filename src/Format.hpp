@@ -11,10 +11,11 @@
 #include <string>
 #include <vector>
 #include "Options.hpp"
+#include "CommandFactory.hpp"
 
 class Format {
 public:
-    Format(const std::vector<Options>& options);
+    Format(std::vector<Options> options);
      auto formatOutput(const std::vector<std::string>& output)
         -> std::vector<std::string>;
 
@@ -24,11 +25,8 @@ private:
      auto cleanupOutput(const std::vector<std::string>& output)
         -> std::vector<std::string>;
 
-     // Options impls
-     auto longListing(const std::vector<std::string>& output)
-        -> std::vector<std::string>;
-
      std::vector<Options> options_;
+     std::unique_ptr<CommandFactory> factory_;
 };
 
 #endif /* SRC_FORMAT_HPP_ */

@@ -20,7 +20,6 @@ void Filesystem::printCurrentDir()
 
     Format format(options_);
     auto results = format.formatOutput(output);
-//    auto results = format.cleanupOutput(output);
 
     for (auto && result : results)
     {

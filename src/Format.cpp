@@ -10,8 +10,9 @@
 #include "Format.hpp"
 
 
-Format::Format(const std::vector<Options>& options)
+Format::Format(std::vector<Options> options)
     : options_(std::move(options))
+    , factory_(std::make_unique<CommandFactory>())
 {  }
 
 auto Format::formatOutput(const std::vector<std::string>& output)
@@ -30,20 +31,20 @@ auto Format::formatOutput(const std::vector<std::string>& output)
 auto Format::applyOption(Options option, const std::vector<std::string>& output)
     -> std::vector<std::string>
 {
-    std::vector<std::string> result;
+    std::unique_ptr<Command> commandHandler;
 
     switch (option)
     {
         case Options::l:
             std::cout << "Format l" << std::endl;
-            result = longListing(output);
+            commandHandler = factory_->createLongListingCommand(output);
         break;
 
         default:
             std::cerr << "Wrong options!" << std::endl;
     }
 
-    return result;
+    return commandHandler->execute();
 }
 
 auto Format::cleanupOutput(const std::vector<std::string>& output)
@@ -53,17 +54,6 @@ auto Format::cleanupOutput(const std::vector<std::string>& output)
 
     std::ranges::transform(output, std::back_inserter(result),
         [](std::string entry){ return entry.substr(2); });
-
-    return result;
-}
-
-auto Format::longListing(const std::vector<std::string>& output)
-    -> std::vector<std::string>
-{
-     std::vector<std::string> result;
-
-    std::ranges::transform(output, std::back_inserter(result),
-        [](std::string entry){ return entry + "\n"; });
 
     return result;
 }
