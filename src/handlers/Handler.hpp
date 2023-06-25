@@ -1,14 +1,14 @@
-#ifndef COMMAND_H
-#define COMMAND_H
+#ifndef HANDLER_H
+#define HANDLER_H
 
 #include <string>
 #include <vector>
 
-class Command
+class Handler
 {
 public:
-    virtual ~Command() = default;
+    virtual ~Handler() = default;
     virtual std::vector<std::string> execute() = 0;
 };
 
-#endif // COMMAND_H
+#endif // HANDLER_H

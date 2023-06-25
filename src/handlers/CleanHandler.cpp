@@ -1,11 +1,11 @@
 #include <algorithm>
-#include "CleanCommand.hpp"
+#include "CleanHandler.hpp"
 
-CleanCommand::CleanCommand(std::vector<std::string> output)
+CleanHandler::CleanHandler(std::vector<std::string> output)
     : output_(output)
 { }
 
-std::vector<std::string> CleanCommand::execute()
+std::vector<std::string> CleanHandler::execute()
 {
     std::vector<std::string> result;
 

@@ -1,13 +1,13 @@
-#include "LongListingCommand.hpp"
+#include "LongListingHandler.hpp"
 
 #include <algorithm>
 #include <iostream>
 
-LongListingCommand::LongListingCommand(std::vector<std::string> output)
+LongListingHandler::LongListingHandler(std::vector<std::string> output)
     : output_(output)
 { }
 
-std::vector<std::string> LongListingCommand::execute()
+std::vector<std::string> LongListingHandler::execute()
 {
     std::vector<std::string> result;
 

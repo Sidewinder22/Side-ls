@@ -11,20 +11,20 @@
 #include <string>
 #include <vector>
 #include "Options.hpp"
-#include "handlers/CommandFactory.hpp"
+#include "handlers/HandlerFactory.hpp"
 
 class Format {
 public:
     Format(std::vector<Options> options);
-     auto formatOutput(const std::vector<std::string>& output)
-        -> std::vector<std::string>;
+    std::vector<std::string> formatOutput(
+        const std::vector<std::string>& output);
 
 private:
-     auto applyOption(Options option, const std::vector<std::string>& output)
-        -> std::vector<std::string>;
+     std::vector<std::string> applyOption(Options option,
+         const std::vector<std::string>& output);
 
      std::vector<Options> options_;
-     std::unique_ptr<CommandFactory> factory_;
+     std::unique_ptr<HandlerFactory> handlerFactory_;
 };
 
 #endif /* SRC_FORMAT_HPP_ */
