@@ -6,12 +6,9 @@
 class CleanHandler : public Handler
 {
 public:
-    explicit CleanHandler(std::vector<std::string> output);
+    ~CleanHandler() override = default;
 
-    std::vector<std::string> execute() override;
-
-private:
-    std::vector<std::string> output_;
+    std::vector<std::string> execute(std::vector<std::string> output) override;
 };
 
 #endif // CLEANHANDLER_HPP

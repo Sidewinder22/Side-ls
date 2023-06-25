@@ -8,7 +8,8 @@ class Handler
 {
 public:
     virtual ~Handler() = default;
-    virtual std::vector<std::string> execute() = 0;
+
+    virtual std::vector<std::string> execute(std::vector<std::string> output) = 0;
 };
 
 #endif // HANDLER_H

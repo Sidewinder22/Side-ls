@@ -11,7 +11,7 @@ add_executable(${APP}
         Format.hpp
 	Format.cpp
         main.cpp
-        Options.hpp
+        Option.hpp
         ProgramOptions.hpp
         ProgramOptions.cpp
 )

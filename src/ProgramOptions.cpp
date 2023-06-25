@@ -17,11 +17,11 @@ ProgramOptions::ProgramOptions()
 	;
 }
 
-std::vector<Options> ProgramOptions::parseArgs(int argc, char* argv[])
+std::vector<Option> ProgramOptions::parseArgs(int argc, char* argv[])
 {
 	po::store(po::parse_command_line(argc, argv, description_), variablesMap_);
 	po::notify(variablesMap_);
-    std::vector<Options> results;
+    std::vector<Option> options;
 
 	if (variablesMap_.count("help"))
 	{
@@ -30,9 +30,8 @@ std::vector<Options> ProgramOptions::parseArgs(int argc, char* argv[])
 
 	if (variablesMap_.count("list"))
 	{
-		std::cout << "list option" << std::endl;
-        results.push_back(Options::l);
+        options.push_back(Option::l);
 	}
 
-    return results;
+    return options;
 }

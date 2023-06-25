@@ -10,20 +10,16 @@
 
 #include <string>
 #include <vector>
-#include "Options.hpp"
+#include "Option.hpp"
 #include "handlers/HandlerFactory.hpp"
 
 class Format {
 public:
-    Format(std::vector<Options> options);
-    std::vector<std::string> formatOutput(
-        const std::vector<std::string>& output);
+    Format(std::vector<Option> options);
+    std::vector<std::string> formatOutput(std::vector<std::string> output);
 
 private:
-     std::vector<std::string> applyOption(Options option,
-         const std::vector<std::string>& output);
-
-     std::vector<Options> options_;
+     std::vector<Option> options_;
      std::unique_ptr<HandlerFactory> handlerFactory_;
 };
 

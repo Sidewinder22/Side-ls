@@ -2,17 +2,20 @@
 #define HANDLERFACTORY_HPP
 
 #include <memory>
+#include <vector>
 #include "Handler.hpp"
+#include "Option.hpp"
 
 class HandlerFactory
 {
 public:
     HandlerFactory();
 
-    std::unique_ptr<Handler>
-        createLongListingHandler(std::vector<std::string> output);
-    std::unique_ptr<Handler>
-        createCleanHandler(std::vector<std::string> output);
+    std::vector<std::unique_ptr<Handler>> getApplicableHandlers(
+        std::vector<Option> options);
+
+private:
+    std::unique_ptr<Handler> getAppropiateHandlerForOption(Option option);
 };
 
 #endif // HANDLERFACTORY_HPP

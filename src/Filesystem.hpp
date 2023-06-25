@@ -10,18 +10,18 @@
 
 #include <string>
 #include <vector>
-#include "Options.hpp"
+#include "Option.hpp"
 
 class Filesystem {
 public:
-    Filesystem(std::vector<Options> options);
+    Filesystem(std::vector<Option> options);
 
 	void printCurrentDir();
     std::vector<std::string> getDirContent();
 
 private:
 	static constexpr auto currentPath_ = ".";
-    std::vector<Options> options_;
+    std::vector<Option> options_;
 };
 
 #endif /* SRC_FILESYSTEM_HPP_ */
