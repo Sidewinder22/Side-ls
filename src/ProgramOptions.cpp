@@ -23,11 +23,18 @@ ProgramOptions::ProgramOptions()
 std::unordered_map<Option, std::string> ProgramOptions::parseArgs(
     int argc, char* argv[])
 {
-    po::store(po::command_line_parser(argc, argv)
-        .options(optionsDescription_)
-        .positional(positionalOptionsDescription_)
-        .run(),
-         variablesMap_);
+    try
+    {
+        po::store(po::command_line_parser(argc, argv)
+            .options(optionsDescription_)
+            .positional(positionalOptionsDescription_)
+            .run(),
+            variablesMap_);
+
+    }  catch (boost::program_options::multiple_occurrences &e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
 
     po::notify(variablesMap_);
     std::unordered_map<Option, std::string> options;
