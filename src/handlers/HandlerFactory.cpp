@@ -1,10 +1,8 @@
 #include <iostream>
 #include "HandlerFactory.hpp"
 #include "LongListingHandler.hpp"
+#include "NormalListingHandler.hpp"
 #include "CleanHandler.hpp"
-
-HandlerFactory::HandlerFactory()
-{  }
 
 std::vector<std::unique_ptr<Handler>> HandlerFactory::getApplicableHandlers(
     std::unordered_map<Option, std::string> options)
@@ -38,6 +36,10 @@ std::unique_ptr<Handler> HandlerFactory::getAppropiateHandlerForOption(
         break;
 
         case Option::path:
+        break;
+
+        case Option::normal:
+            handler = std::make_unique<NormalListingHandler>();
         break;
 
         default:
