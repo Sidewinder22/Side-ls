@@ -120,3 +120,5 @@ Side-ls/CMakeLists.txt.user*
 Side-ls/Side-ls
 
 CMakeLists.txt.user
+.idea
+cmake-build-debug

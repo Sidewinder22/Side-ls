@@ -23,10 +23,10 @@ void Filesystem::printDir()
 
     for (auto && result : results)
     {
-        std::cout << result << " ";
+        std::cout << result;
     }
 
-    std::cout << std::endl;
+//    std::cout << std::endl;
 }
 
 std::string Filesystem::extractPathFromOptions()
