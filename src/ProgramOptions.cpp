@@ -49,10 +49,14 @@ std::unordered_map<Option, std::string> ProgramOptions::parseArgs(
         std::cout << optionsDescription_ << "\n";
 	}
 
-	if (variablesMap_.count("list"))
+    if (variablesMap_.count("list"))
 	{
         options.insert({Option::list, ""});
-	}
+    }
+    else
+    {
+        options.insert({Option::normal, ""});
+    }
 
     return options;
 }

@@ -4,6 +4,7 @@
 enum class Option
 {
     list,
+    normal,
     path,
 };
 

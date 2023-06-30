@@ -10,7 +10,7 @@
 class HandlerFactory
 {
 public:
-    HandlerFactory();
+    HandlerFactory() = default;
 
     std::vector<std::unique_ptr<Handler>> getApplicableHandlers(
         std::unordered_map<Option, std::string> options);
