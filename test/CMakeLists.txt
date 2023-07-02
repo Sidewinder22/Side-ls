@@ -1,6 +1,9 @@
 add_executable(
         ${PROJECT_NAME}-ut
-        Test.cpp
+        CleanHandlerTest.cpp
+        HandlerFactoryTest.cpp
+        LongListingHandlerTest.cpp
+        NormalListingHandlerTest.cpp
 )
 
 target_link_libraries(

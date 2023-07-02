@@ -25,17 +25,16 @@ void Filesystem::printDir()
     {
         std::cout << result;
     }
-
-//    std::cout << std::endl;
 }
 
 std::string Filesystem::extractPathFromOptions()
 {
     std::string path;
 
-    if (auto search = options_.find(Option::path); search != options_.end())
+    if (auto found = options_.find(Option::path); found != options_.end())
     {
-        path = search->second;
+        path = found->second;
+        options_.erase(found);
     }
 
     return path;
